@@ -16,7 +16,8 @@ git clone git@github.com:toasterlovin/scraping-yalp.git
 cd scraping-yalp
 ```
 
-Then, if you're all setup to run [Ruby](https://www.ruby-lang.org/) stuff on your computer just do:
+Then, if you're all setup to run [Ruby](https://www.ruby-lang.org/) stuff on your computer and you have [PhantonJS](http://phantomjs.org/)
+installed, just do:
 
 ```
 bundle install
@@ -58,7 +59,7 @@ Change the options to suit your fancy.
 ## How it works
 
 This is a [Rake](https://github.com/ruby/rake) task that uses [Capybara](https://github.com/jnicklas/capybara) and
-[Poltergeist](https://github.com/teampoltergeist/poltergeist)/[PhantomJS](http://phantomjs.org/) to simulate visiting
+[Poltergeist](https://github.com/teampoltergeist/poltergeist)/PhantomJS to simulate visiting
 a website with a name that sounds an awful lot like Yalp, extracting company data as it
 goes. You can modify it as needed to suit other, similar purposes.
 
