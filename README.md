@@ -68,13 +68,13 @@ who interacts with various aspects of the application. Here we're definitely int
 with various aspects of a web app. We just also happen to be extracting data as we go, which
 is somethign that Capybara is perfectly capable of.
 
-Poltergeist is driver that allows Capybara to use PhantomJS, which is a headless web browser
-which supports Javascript. A headless browser is simply a browser that runs and operates
-exactly like a normal web browser, it just doesn't actually display the web pages that it's
-visiting. And javascript support is important because many features of modern sites don't
-work without Javascript.
+Poltergeist is a driver that allows Capybara to use PhantomJS, which is a headless web browser
+with Javascript support. A headless browser is a browser that runs and operates exactly like
+a normal web browser, just without actually displaying the web pages it's visiting. And
+javascript support is important because many features of modern sites don't work without Javascript.
 
 
 ## License
 
-You are free to do whatever you'd like with this. Just don't blame me if you get in trouble.
+You are free to do whatever you'd like with this. Just be aware of the [terms of service](http://www.yelp.com/static?p=tos)
+ of certain websites.
