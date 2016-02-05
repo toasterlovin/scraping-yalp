@@ -130,6 +130,6 @@ namespace :yalp do
   end
 
   def raise_incorrect_usage
-    raise ArgumentError, "Please specify a location\nUsage: rake yalp:scrape location='City, State' search='Business Type' output='leads.csv'"
+    raise ArgumentError, "Usage: rake yalp:scrape location='City, State' search='Business Type' output='leads.csv'"
   end
 end
