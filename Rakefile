@@ -22,7 +22,7 @@ namespace :yalp do
       count += 1
       puts "Gathering lead URLs from page #{count}"
       all(".regular-search-result .biz-name").each do |result|
-        @lead_urls << "http://www.yelp.com#{result[:href]}"
+        @lead_urls << result[:href]
       end
 
       if has_css?(".next")
