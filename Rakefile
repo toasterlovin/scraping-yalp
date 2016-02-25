@@ -5,6 +5,9 @@ require "capybara/dsl"
 require "capybara/poltergeist"
 require "csv"
 
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, js_errors: false)
+end
 Capybara.default_driver = :poltergeist
 Capybara.run_server = false
 include Capybara::DSL
@@ -40,7 +43,16 @@ namespace :yalp do
 
     @lead_urls.each_with_index do |lead_url, count|
       puts "Gathering information for lead #{count + 1} of #{@lead_urls.count}"
-      visit lead_url
+      5.times do
+        begin
+          visit lead_url
+          break
+        rescue Capybara::Poltergeist::StatusFailError => msg
+          puts "Visiting #{lead_url} failed: #{msg}\nWaiting 200ms then trying again"
+          sleep 0.2
+          next
+        end
+      end
 
       lead = {}
       lead[:name] = text_from(".biz-page-title")
