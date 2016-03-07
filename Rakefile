@@ -18,6 +18,14 @@ namespace :yalp do
 
     puts "Visiting #{search_url}"
     visit search_url
+    if has_css? "#recaptcha_challenge_image"
+      save_page "captcha.html"
+      puts "Please open captcha.html and type in the captcha text"
+      captcha_text = STDIN.gets.chomp
+      fill_in "Type the text", with: captcha_text
+      click_on "Complete Captcha"
+      save_page
+    end
 
     @lead_urls = []
     count = 0
@@ -28,9 +36,9 @@ namespace :yalp do
         @lead_urls << result[:href]
       end
 
-      if has_css?(".next")
-        find(".next").click
-        sleep 1
+      if has_link?("Next")
+        find("a.next").trigger("click");
+        sleep 2
       else
         puts "Done gathering lead URLs"
         break
